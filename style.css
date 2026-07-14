@@ -99,6 +99,19 @@ select {
     /* Typography — line height */
     --line-height-tight: 1.2;
     --line-height-normal: 1.5;
+
+
+    /* Spacing — 8px base unit */
+    --space-xs: 0.5rem;   /* 8px */
+    --space-sm: 1rem;     /* 16px */
+    --space-md: 1.5rem;   /* 24px */
+    --space-lg: 2.5rem;   /* 40px */
+    --space-xl: 4rem;     /* 64px */
+    --space-2xl: 6rem;    /* 96px */
+
+    /* Layout */
+    --container-max-width: 1200px;
+    --container-padding: 1.5rem;
 }
 
 
@@ -136,4 +149,214 @@ h3 {
 
 a {
     color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Layout — container
+
+   Every top-level section gets this via a wrapping element, rather than
+   padding sections directly, so nested layouts (nav, hero, grids) don't
+   have to fight the section's own padding.
+   ========================================================================== */
+
+.container {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+
+/* ==========================================================================
+   Header / nav
+   ========================================================================== */
+
+header {
+    border-bottom: 1px solid var(--color-border-default);
+}
+
+header nav {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding: var(--space-sm) var(--container-padding);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-base);
+}
+
+header nav ul {
+    display: flex;
+    gap: var(--space-md);
+}
+
+header nav a {
+    color: var(--color-fg-muted);
+    font-size: var(--font-size-sm);
+}
+
+header nav a:hover {
+    color: var(--color-fg-default);
+}
+
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+#hero {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding: var(--space-2xl) var(--container-padding);
+}
+
+#hero p:first-child {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-xs);
+}
+
+#hero h1 {
+    margin-bottom: var(--space-md);
+}
+
+#hero p:last-child {
+    color: var(--color-fg-muted);
+    font-size: var(--font-size-lg);
+    max-width: 40ch;
+}
+
+/* ==========================================================================
+   Section spacing (shared)
+   ========================================================================== */
+
+#projects,
+#articles,
+#skills {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+    padding-block-start: var(--space-lg);
+    padding-block-end: var(--space-lg);
+}
+
+#projects h2,
+#articles h2,
+#skills h2 {
+    margin-bottom: var(--space-lg);
+}
+
+
+/* ==========================================================================
+   Project cards
+   ========================================================================== */
+
+#projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+#projects h2 {
+    grid-column: 1 / -1;
+}
+
+#projects article {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
+    padding: var(--space-md);
+}
+
+#projects article h3 {
+    margin-bottom: var(--space-xs);
+}
+
+#projects article p {
+    color: var(--color-fg-muted);
+    font-size: var(--font-size-sm);
+}
+
+@media (min-width: 640px) {
+    #projects {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ==========================================================================
+   Latest writing
+   ========================================================================== */
+
+#articles article {
+    padding-block: var(--space-sm);
+    border-bottom: 1px solid var(--color-border-default);
+}
+
+#articles article:last-child {
+    border-bottom: none;
+}
+
+#articles h3 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ==========================================================================
+   Tech stack chips
+   ========================================================================== */
+
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+#skills li {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 999px;
+    padding: 0.375rem var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-fg-muted);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    border-top: 1px solid var(--color-border-default);
+    margin-top: var(--space-lg);
+}
+
+footer p {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding: var(--space-md) var(--container-padding);
+    color: var(--color-fg-muted);
+    font-size: var(--font-size-sm);
+}
+
+
+/* ==========================================================================
+   Mobile adjustments
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    header nav {
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+    }
 }
