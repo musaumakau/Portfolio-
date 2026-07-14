@@ -11,6 +11,23 @@
         content="DevOps Engineer building secure cloud infrastructure."
     >
 
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://musaumakau.github.io/Portfolio-">
+    <meta property="og:title" content="Juan Makau - DevOps Engineer">
+    <meta property="og:description" content="Building secure cloud infrastructure. Terraform, Kubernetes, AWS, and supply chain security.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/0d1117/58a6ff?text=Juan+Makau">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://musaumakau.github.io/Portfolio-">
+    <meta name="twitter:title" content="Juan Makau - DevOps Engineer">
+    <meta name="twitter:description" content="Building secure cloud infrastructure. Terraform, Kubernetes, AWS, and supply chain security.">
+    <meta name="twitter:image" content="https://via.placeholder.com/1200x630/0d1117/58a6ff?text=Juan+Makau">
+    
+    <!-- Canonical -->
+    <meta rel="canonical" href="https://musaumakau.github.io/Portfolio-">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -20,6 +37,27 @@
     >
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Juan Makau",
+      "url": "https://musaumakau.github.io/Portfolio-",
+      "jobTitle": "DevOps Engineer",
+      "description": "Building secure cloud infrastructure with Terraform, Kubernetes, and AWS",
+      "sameAs": [
+        "https://github.com/musaumakau",
+        "https://medium.com/@Juan_Makau",
+        "https://www.linkedin.com/in/juan-musau"
+      ],
+      "knowsAbout": ["AWS", "Terraform", "Kubernetes", "Docker", "GitHub Actions", "Vault", "Python", "Linux"]
+    }
+    </script>
 </head>
 
 <body>
@@ -29,9 +67,10 @@
         <p class="logo">Juan Makau</p>
 
         <ul>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Medium</a></li>
-            <li><a href="#">LinkedIn</a></li>
+            <li><a href="https://github.com/musaumakau" target="_blank">GitHub</a></li>
+            <li><a href="https://medium.com/@Juan_Makau" target="_blank">Medium</a></li>
+            <li><a href="https://www.linkedin.com/in/juan-musau" target="_blank">LinkedIn</a></li>
+            <li><button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button></li>
         </ul>
     </nav>
 </header>
@@ -57,8 +96,9 @@
         <h2>Featured Projects</h2>
 
         <article>
+            <img src="https://via.placeholder.com/300x180/161b22/58a6ff?text=Supply+Chain+Security" alt="Supply Chain Security project" class="project-image">
 
-            <h3>Supply Chain Security</h3>
+            <h3><a href="https://github.com/musaumakau/supply-chain-security" target="_blank">Supply Chain Security</a></h3>
 
             <p>
                 Container signing, SBOMs, provenance,
@@ -68,8 +108,9 @@
         </article>
 
         <article>
+            <img src="https://via.placeholder.com/300x180/161b22/58a6ff?text=Infrastructure+Modules" alt="Infrastructure Modules project" class="project-image">
 
-            <h3>Infrastructure Modules</h3>
+            <h3><a href="https://github.com/musaumakau/infrastructure-modules" target="_blank">Infrastructure Modules</a></h3>
 
             <p>
                 Reusable Terraform modules for AWS.
@@ -78,8 +119,9 @@
         </article>
 
         <article>
+            <img src="https://via.placeholder.com/300x180/161b22/58a6ff?text=Infrastructure+Live" alt="Infrastructure Live project" class="project-image">
 
-            <h3>Infrastructure Live</h3>
+            <h3><a href="https://github.com/musaumakau/infrastructure-live" target="_blank">Infrastructure Live</a></h3>
 
             <p>
                 Terragrunt-driven live infrastructure.
@@ -94,11 +136,19 @@
         <h2>Latest Writing</h2>
 
         <article>
-            <h3>The Plan You Reviewed Is the Plan That Gets Applied</h3>
+            <h3><a href="https://medium.com/@Juan_Makau/securing-the-software-supply-chain-signing-attesting-and-enforcing-container-images-in-e6f5d459b00d" target="_blank">Securing the Software Supply Chain</a></h3>
         </article>
 
         <article>
-            <h3>Production-grade Terraform CI/CD Pipeline</h3>
+            <h3><a href="https://medium.com/@Juan_Makau/the-plan-you-reviewed-is-the-plan-that-gets-applied-41440cf6285f" target="_blank">The Plan You Reviewed Is the Plan That Gets Applied</a></h3>
+        </article>
+
+        <article>
+            <h3><a href="https://medium.com/@Juan_Makau/how-i-built-a-production-grade-terraform-ci-cd-pipeline-that-actually-catches-problems-before-they-f6b6cc85ee5d" target="_blank">Production-grade Terraform CI/CD Pipeline</a></h3>
+        </article>
+
+        <article>
+            <h3><a href="https://medium.com/@Juan_Makau/building-enterprise-infrastructure-governance-how-we-eliminated-cost-overruns-and-compliance-gaps-0d8dd6772110" target="_blank">Building Enterprise Infrastructure Governance</a></h3>
         </article>
 
     </section>
@@ -120,13 +170,47 @@
 
     </section>
 
-</main>
+    <section id="contact">
 
-<footer>
+        <h2>Get in Touch</h2>
 
-    <p>
-        Built by Juan Makau.
-    </p>
+        <form id="contact-form" action="https://formspree.io/f/mlgqdpll" method="POST">
+            <!-- Subject for incoming emails -->
+            <input type="hidden" name="_subject" value="Portfolio contact form message">
+            <!-- Honeypot to deter bots -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+    </section>
+
+    <div class="footer-content">
+        <p>
+            Built by Juan Makau. <a href="#contact">Get in touch</a>
+        </p>
+
+        <ul class="social-links">
+            <li><a href="https://github.com/musaumakau" target="_blank" aria-label="GitHub">GitHub</a></li>
+            <li><a href="https://medium.com/@Juan_Makau" target="_blank" aria-label="Medium">Medium</a></li>
+            <li><a href="https://www.linkedin.com/in/juan-musau" target="_blank" aria-label="LinkedIn">LinkedIn</a></li>
+        </ul>
+    </div>
 
 </footer>
 
