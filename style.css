@@ -42,6 +42,11 @@ ol {
 a {
     color: inherit;
     text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 button {
@@ -113,6 +118,52 @@ select {
     /* Layout */
     --container-max-width: 1200px;
     --container-padding: 1.5rem;
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Color — background & surface */
+        --color-bg-canvas: #ffffff;
+        --color-bg-surface: #f6f8fa;
+        --color-border-default: #d0d7de;
+
+        /* Color — text */
+        --color-fg-default: #24292f;
+        --color-fg-muted: #57606a;
+
+        /* Color — accent */
+        --color-accent: #0969da;
+    }
+}
+
+/* Light mode toggle (when user manually switches) */
+html[data-theme="light"] {
+    /* Color — background & surface */
+    --color-bg-canvas: #ffffff;
+    --color-bg-surface: #f6f8fa;
+    --color-border-default: #d0d7de;
+
+    /* Color — text */
+    --color-fg-default: #24292f;
+    --color-fg-muted: #57606a;
+
+    /* Color — accent */
+    --color-accent: #0969da;
+}
+
+html[data-theme="dark"] {
+    /* Color — background & surface */
+    --color-bg-canvas: #0d1117;
+    --color-bg-surface: #161b22;
+    --color-border-default: #30363d;
+
+    /* Color — text */
+    --color-fg-default: #e6edf3;
+    --color-fg-muted: #8b949e;
+
+    /* Color — accent */
+    --color-accent: #58a6ff;
 }
 
 
@@ -206,6 +257,19 @@ header nav a:hover {
     color: var(--color-fg-default);
 }
 
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-lg);
+    padding: 0;
+    transition: transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.2);
+}
+
 
 /* ==========================================================================
    Hero
@@ -273,14 +337,36 @@ header nav a:hover {
     background-color: var(--color-bg-surface);
     border: 1px solid var(--color-border-default);
     border-radius: 6px;
-    padding: var(--space-md);
+    padding: 0;
     transition: all 0.2s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 #projects article:hover {
     transform: translateY(-4px);
     border-color: var(--color-accent);
     box-shadow: 0 8px 16px rgba(88, 166, 255, 0.1);
+}
+
+.project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+#projects article h3 {
+    margin-top: var(--space-md);
+    margin-left: var(--space-md);
+    margin-right: var(--space-md);
+    margin-bottom: var(--space-xs);
+}
+
+#projects article p {
+    margin-left: var(--space-md);
+    margin-right: var(--space-md);
+    margin-bottom: var(--space-md);
 }
 
 #projects article h3 {
@@ -369,12 +455,44 @@ footer {
     margin-top: var(--space-lg);
 }
 
-footer p {
+.footer-content {
     max-width: var(--container-max-width);
     margin-inline: auto;
     padding: var(--space-md) var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+footer p {
     color: var(--color-fg-muted);
     font-size: var(--font-size-sm);
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--space-md);
+    list-style: none;
+}
+
+.social-links a {
+    color: var(--color-fg-muted);
+    font-size: var(--font-size-sm);
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+    }
 }
 
 
